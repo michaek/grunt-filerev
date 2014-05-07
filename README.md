@@ -28,6 +28,7 @@ grunt.initConfig({
     options: {
       encoding: 'utf8',
       algorithm: 'md5',
+      digest: 'hex',
       length: 8
     },
     images: {
@@ -53,6 +54,13 @@ Type: `String`
 Default: `'md5'`
 
 `algorithm` is dependent on the available algorithms supported by the version of OpenSSL on the platform. Examples are `'sha1'`, `'md5'`, `'sha256'`, `'sha512'`, etc. On recent releases, `openssl list-message-digest-algorithms` will display the available digest algorithms.
+
+#### options.digest
+
+Type: `String`  
+Default: `'hex'`
+
+The digest encoding, as passed to [hash.digest()](http://nodejs.org/api/crypto.html#crypto_hash_digest_encoding). Using `'base64'` allows for short hash strings to have a smaller likelihood of collision.
 
 #### options.length
 

@@ -35,6 +35,12 @@ module.exports = function (grunt) {
         },
         src: ['test/tmp/cfgfile.png']
       },
+      withDigest: {
+        options: {
+          digest: 'base64'
+        },
+        src: ['test/tmp/digestfile.png']
+      },
       withDest: {
         src: ['test/fixtures/file.png'],
         dest: 'test/tmp/dest'

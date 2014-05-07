@@ -15,6 +15,12 @@ describe('filerev', function () {
     assert(revisioned === original);
   });
 
+  it('should accept a digest option', function () {
+    var original = fs.statSync('test/fixtures/digestfile.png').size;
+    var revisioned= fs.statSync('test/tmp/digestfile.oFOXY96N.png').size;
+    assert(revisioned === original);
+  });
+
   it('should allow a dest directory option', function () {
     var original = fs.statSync('test/fixtures/file.png').size;
     var revisioned= fs.statSync('test/tmp/dest/file.a0539763.png').size;

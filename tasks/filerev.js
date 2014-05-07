@@ -10,6 +10,7 @@ module.exports = function (grunt) {
     var options = this.options({
       encoding: 'utf8',
       algorithm: 'md5',
+      digest: 'hex',
       length: 8
     });
     var target = this.target;
@@ -40,7 +41,7 @@ module.exports = function (grunt) {
 
       el.src.forEach(function (file) {
         var dirname;
-        var hash = crypto.createHash(options.algorithm).update(grunt.file.read(file), options.encoding).digest('hex');
+        var hash = crypto.createHash(options.algorithm).update(grunt.file.read(file), options.encoding).digest(options.digest);
         var suffix = hash.slice(0, options.length);
         var ext = path.extname(file);
         var newName = [path.basename(file, ext), suffix, ext.slice(1)].join('.');
